@@ -72,12 +72,5 @@ public class UnityChanController : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    // キューブ衝突時にはボリュームを0にする
-    void OnCollisionEnter2D (Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("CubePrefabTag"))
-            {
-                GetComponent<AudioSource>().volume = 0;
-            }
-        }
-    }
+   
+}

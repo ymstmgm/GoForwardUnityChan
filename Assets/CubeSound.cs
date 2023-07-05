@@ -4,24 +4,25 @@ using UnityEngine;
 
 public class CubeSound : MonoBehaviour
 {
-    // キューブの効果音
-    public AudioSource audioSource;
-    // 着地判定
-    private bool isGround;
+    //キューブの効果音
+    private AudioSource AudioSource;
 
-
-    // Start is called before the first frame update
     void Start()
-    {}
-
-     
-
-    private void Update()
     {
-        // 着地した時、重なった時に再生
-        if (isGround)
-        {
-            audioSource.Play();
-        }
+        // キューブの音を取得する
+        AudioSource = GetComponent<AudioSource>();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        // キューブが地面に接触と重なった時に音を再生する
+        AudioSource.Play();
+       
+        // ユニティちゃんを判定
+        if (collision.gameObject.name == "UnityChan2D")
+       {
+        // 音を再生しない
+        return;
+       }
     }
 }
